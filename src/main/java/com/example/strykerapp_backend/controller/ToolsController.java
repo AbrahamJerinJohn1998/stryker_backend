@@ -40,7 +40,7 @@ public class ToolsController {
     {
         String id=String.valueOf(s.getSerialNo());
         System.out.println(id);
-        dao.DeleteStudent(s.getSerialNo());
+        dao.DeleteTools(s.getSerialNo());
         HashMap<String,String> map=new HashMap<>();
         map.put("status","success");
         return map;

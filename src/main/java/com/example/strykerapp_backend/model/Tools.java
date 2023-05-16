@@ -17,6 +17,9 @@ public class Tools {
     private String status;
     private String description;
 
+    public Tools() {
+    }
+
     public Tools(int serialNo, String name, String category, int quantity, String status, String description) {
         this.serialNo = serialNo;
         this.name = name;

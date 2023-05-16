@@ -13,6 +13,6 @@ public interface ToolsDao  extends CrudRepository<Tools,Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM `tools` WHERE `serialNo`= :id",nativeQuery = true)
-    void DeleteStudent(@Param("id") Integer id);
+    @Query(value = "DELETE FROM `tools` WHERE `serialNO`= :id",nativeQuery = true)
+    void DeleteTools(@Param("id") Integer id);
 }
