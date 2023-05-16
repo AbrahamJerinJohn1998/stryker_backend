@@ -1,17 +1,17 @@
 package com.example.strykerapp_backend.controller;
 
+import com.example.strykerapp_backend.dao.ToolsDao;
 import com.example.strykerapp_backend.model.Tools;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@RestController
 public class ToolsController {
-
+    @Autowired
+    private ToolsDao dao;
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/addTools", consumes = "application/json",produces = "application/json")
     public Map<String,String> addStudents(@RequestBody Tools s)
