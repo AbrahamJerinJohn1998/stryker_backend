@@ -1,16 +1,13 @@
 package com.example.strykerapp_backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tools")
 public class Tools {
     @Id
-    @GeneratedValue
-    private int serialNo;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String name;
     private String category;
     private int  quantity;
@@ -20,8 +17,8 @@ public class Tools {
     public Tools() {
     }
 
-    public Tools(int serialNo, String name, String category, int quantity, String status, String description) {
-        this.serialNo = serialNo;
+    public Tools(int id, String name, String category, int quantity, String status, String description) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.quantity = quantity;
@@ -29,12 +26,13 @@ public class Tools {
         this.description = description;
     }
 
-    public int getSerialNo() {
-        return serialNo;
+
+    public int getId() {
+        return id;
     }
 
-    public void setSerialNo(int serialNo) {
-        this.serialNo = serialNo;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

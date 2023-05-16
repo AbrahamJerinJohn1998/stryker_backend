@@ -38,9 +38,9 @@ public class ToolsController {
     @PostMapping(path = "/delete",consumes = "application/json",produces = "application/json")
     public Map<String,String> DeleteTools(@RequestBody Tools s)
     {
-        String id=String.valueOf(s.getSerialNo());
+        String id=String.valueOf(s.getId());
         System.out.println(id);
-        dao.DeleteTools(s.getSerialNo());
+        dao.DeleteTools(s.getId());
         HashMap<String,String> map=new HashMap<>();
         map.put("status","success");
         return map;
