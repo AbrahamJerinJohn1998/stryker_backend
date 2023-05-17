@@ -13,8 +13,8 @@ public class ToolsController {
     @Autowired
     private ToolsDao dao;
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/addTools", consumes = "application/json",produces = "application/json")
-    public Map<String,String> addStudents(@RequestBody Tools s)
+    @PostMapping(path = "/add", consumes = "application/json",produces = "application/json")
+    public Map<String,String> addTools(@RequestBody Tools s)
     {
 
         System.out.println(s.getName().toString());
@@ -24,7 +24,7 @@ public class ToolsController {
         System.out.println(s.getDescription().toString());
         dao.save(s);
         HashMap<String,String> map=new HashMap<>();
-        map.put("status","success");
+        map.put("status","Tool added successfully ");
         return map;
     }
     @CrossOrigin(origins = "*")
@@ -42,8 +42,27 @@ public class ToolsController {
         System.out.println(id);
         dao.DeleteTools(s.getId());
         HashMap<String,String> map=new HashMap<>();
-        map.put("status","success");
+        map.put("status","Tool deleted successfully");
         return map;
 
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/update",produces = "application/json",consumes = "application/json")
+    public HashMap<String,String> UpdateTools(@RequestBody Tools e)
+    {
+        String id=String.valueOf(e.getId());
+        String name=String.valueOf(e.getName().toString());
+        String category=String.valueOf(e.getCategory().toString());
+        int quantity=e.getQuantity();
+        String status=String.valueOf(e.getStatus().toString());
+        String description=String.valueOf(e.getDescription().toString());
+
+        dao.UpdateTools(e.getId(),e.getName(),e.getCategory(),e.getQuantity(),e.getStatus(),e.getDescription());
+
+        HashMap<String,String> map=new HashMap<>();
+
+        map.put("status","Tool details updated successfully");
+
+        return map;
     }
 }
