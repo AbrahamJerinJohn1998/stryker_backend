@@ -1,6 +1,7 @@
 package com.example.strykerapp_backend.model;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 @Table(name = "tools")
@@ -13,19 +14,28 @@ public class Tools {
     private int  quantity;
     private String status;
     private String description;
+    @Column(name = "created_on")
+    private String created_on;
+
+    private String updated_on;
+
+    private int flag;
 
     public Tools() {
     }
 
-    public Tools(int id, String name, String category, int quantity, String status, String description) {
+
+    public Tools(int id, String name, String category, int quantity, String status, String description, String created_on, String updated_on, int flag) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.quantity = quantity;
         this.status = status;
         this.description = description;
+        this.created_on = created_on;
+        this.updated_on = updated_on;
+        this.flag = flag;
     }
-
 
     public int getId() {
         return id;
@@ -73,5 +83,29 @@ public class Tools {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCreated_on() {
+        return created_on;
+    }
+
+    public void setCreated_on(String created_on) {
+        this.created_on = created_on;
+    }
+
+    public String getUpdated_on() {
+        return updated_on;
+    }
+
+    public void setUpdated_on(String updated_on) {
+        this.updated_on = updated_on;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 }
