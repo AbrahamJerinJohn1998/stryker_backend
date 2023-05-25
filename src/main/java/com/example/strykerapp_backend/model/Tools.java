@@ -20,12 +20,14 @@ public class Tools {
     private String updated_on;
 
     private int flag;
+    @Transient
+    private  int requestCount;
 
     public Tools() {
     }
 
 
-    public Tools(int id, String name, String category, int quantity, String status, String description, String created_on, String updated_on, int flag) {
+    public Tools(int id, String name, String category, int quantity, String status, String description, String created_on, String updated_on, int flag, int requestCount) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -35,6 +37,7 @@ public class Tools {
         this.created_on = created_on;
         this.updated_on = updated_on;
         this.flag = flag;
+        this.requestCount = requestCount;
     }
 
     public int getId() {
@@ -107,5 +110,13 @@ public class Tools {
 
     public void setFlag(int flag) {
         this.flag = flag;
+    }
+
+    public int getRequestCount() {
+        return requestCount;
+    }
+
+    public void setRequestCount(int requestCount) {
+        this.requestCount = requestCount;
     }
 }
